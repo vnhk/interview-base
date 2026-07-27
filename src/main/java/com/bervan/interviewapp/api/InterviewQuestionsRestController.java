@@ -4,6 +4,7 @@ import com.bervan.common.config.EntityConfigValidator;
 import com.bervan.common.controller.BaseOwnedController;
 import com.bervan.common.controller.ImportResult;
 import com.bervan.common.mapper.BervanDTOMapper;
+import com.bervan.common.search.model.SortDirection;
 import com.bervan.interviewapp.interviewquestions.InterviewQuestionService;
 import com.bervan.interviewapp.interviewquestions.Question;
 import org.springframework.data.domain.Page;
@@ -72,7 +73,7 @@ public class InterviewQuestionsRestController extends BaseOwnedController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "20") int size
     ) throws Exception {
-        return super.load(page, size, InterviewQuestionDto.class);
+        return super.load(page, size, InterviewQuestionDto.class, "id", SortDirection.ASC);
     }
 
     @GetMapping("/export")
